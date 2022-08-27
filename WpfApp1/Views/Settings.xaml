@@ -1,0 +1,73 @@
+﻿<Page x:Class="Bermuda.Views.Settings"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Bermuda.Views" xmlns:svgc1="http://sharpvectors.codeplex.com/svgc/"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      mc:Ignorable="d" 
+      DataContext="{Binding RelativeSource={RelativeSource Self}}"
+      d:DesignHeight="600" d:DesignWidth="800"
+      Title="Settings">
+
+    <Grid>
+        
+        <Grid Height="500"
+              Width="500"
+              VerticalAlignment="Center"
+              HorizontalAlignment="Center">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Border BorderThickness="1" Grid.RowSpan="2" CornerRadius="8,8,8,8" Background="#121212"/>
+
+            <svgc1:SvgViewbox Height="175" Width="250" Margin="0,25,0,25">
+                <svgc1:SvgCanvas Source="pack://application:,,,/Assets/boro_bermuda_logo.svg" Width="Auto" Height="Auto"/>
+            </svgc1:SvgViewbox>
+
+            <StackPanel Grid.Row="1" Width="300" VerticalAlignment="Top">
+                
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock x:Name="BrowserProxiesLbl"
+                               Margin="5,0,5,5"
+                               FontSize="16"
+                               Foreground="White"
+                               Text="Browser Proxies: "/>
+                </StackPanel>
+
+                <ComboBox MaxDropDownHeight="100"
+                          Foreground="White"
+                          x:Name="combo_browserProxyGroupSelection"
+                          Text="Select Browser Proxies"
+                          SelectedItem="{Binding SettingsView.chosenProxyGroup, Mode=TwoWay}"
+                          ItemsSource="{Binding SettingsView.proxyGroups, Mode=TwoWay}"
+                          Style="{StaticResource MaterialDesignOutlinedComboBox}">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding GroupName}"/>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+                
+                <TextBlock Margin="5,10,0,0" FontSize="16" Foreground="White" Text="2Captcha API Key:"/>
+                <TextBox x:Name="TwoCaptchaApiInpt" FontSize="16" Foreground="White" Text="{Binding SettingsView.twoCaptchaApiKey, Mode=TwoWay}" TextAlignment="Center"/>
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Margin="5,10,0,5" FontSize="16" Foreground="White" Text="Captcha Solvers: "/>
+                    <TextBlock Margin="2,10,0,5" FontSize="16" Foreground="White" Text="{Binding SettingsView.numBrowsers}"/>
+                </StackPanel>
+                
+                <Slider x:Name="NumBrowsersSld" TickFrequency="1" Minimum="4" Value="{Binding SettingsView.numBrowsers, Mode=TwoWay}" Maximum="20"/>
+                <Button x:Name="SaveSettingsBtn" Content="Save" Click="SaveSettingsBtn_Click" Width="100" Height="40" Margin="5,15,5,0" HorizontalAlignment="Right"/>
+
+            </StackPanel>
+
+         
+        </Grid>
+        
+    </Grid>
+    
+</Page>

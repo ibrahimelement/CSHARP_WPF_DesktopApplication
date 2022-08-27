@@ -1,0 +1,77 @@
+﻿<Page x:Class="Bermuda.Views.Dashboard"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Bermuda.Components"
+      xmlns:svgc="http://sharpvectors.codeplex.com/svgc/" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Dashboard">
+
+
+    <Page.Resources>
+        <LinearGradientBrush x:Key="CardBrush" StartPoint="0.5,0" EndPoint="0.5,1">
+            <GradientStop Color="#7A80FF" Offset="0.0" />
+            <GradientStop Color="#5B61FE" Offset="1.0" />
+        </LinearGradientBrush>
+    </Page.Resources>
+
+    <Grid Background="#0D0C10">
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+
+        <Grid Grid.RowSpan="2">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <StackPanel VerticalAlignment="Center" Margin="16">
+                <TextBlock Foreground="White" FontWeight="Bold" FontSize="24">Welcome Back, Lucas!</TextBlock>
+                <TextBlock Foreground="#595B63" FontSize="18">Let's get cookin'</TextBlock>
+            </StackPanel>
+        
+            <local:NewsDisplayPhoto Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            
+        </Grid>
+
+        <Grid Grid.Column="1" Margin="0,95,0,0">
+
+            <StackPanel Orientation="Horizontal">
+
+                <StackPanel>
+                    <local:StatisticsCard x:Name="CheckoutStatCard" TitleIcon="CartArrowUp" GradientStart="#797FFF" GradientEnd="#5C62FE" CardTitle="Checkouts" CardValue="1" Width="200" Margin="4,4,4,4"></local:StatisticsCard>
+                    <local:StatisticsCard TitleIcon="CurrencyUsd" CardTitle="Weekly Profitability" NoGraph="true"  Width="200" Grid.Column="1"  Margin="4,4,4,4"></local:StatisticsCard>
+                </StackPanel>
+
+                <StackPanel>
+                    <local:StatisticsCard Width="200" Grid.Row="1" CardValue="$56" TitleIcon="CurrencyUsd" CardTitle="My Profit" NoGraph="true" Margin="4,4,4,4"></local:StatisticsCard>
+                    <local:StatisticsCard Width="200" CardValue="16" Grid.Row="1" CardTitle="Weekly Restocks" NoGraph="true" Grid.Column="1" Margin="4,4,4,4"></local:StatisticsCard>
+                </StackPanel>
+
+            </StackPanel>
+
+        </Grid>
+
+        <Grid Grid.Row="1" Grid.ColumnSpan="2">
+            <local:ProductFeed></local:ProductFeed>
+        </Grid>
+        
+        
+    </Grid>
+
+
+</Page>
+    
+    

@@ -1,0 +1,99 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <Platforms>AnyCPU;x86</Platforms>
+    <RootNamespace>Bermuda</RootNamespace>
+    <PackageIcon>boro_bermuda_logo.png</PackageIcon>
+    <PackageIconUrl />
+    <AssemblyName>BermudaAIO</AssemblyName>
+    <ApplicationIcon>bermuda_logo.ico</ApplicationIcon>
+    <SignAssembly>false</SignAssembly>
+    <DelaySign>false</DelaySign>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Assets\bermuda_logo.png" />
+    <None Remove="Assets\bermuda_logo.svg" />
+    <None Remove="Assets\boro_bermuda_logo.png" />
+    <None Remove="Assets\boro_bermuda_logo.svg" />
+    <None Remove="Assets\decore-left.png" />
+    <None Remove="Assets\decore-right.png" />
+    <None Remove="Assets\discord.jpg" />
+    <None Remove="Assets\EdgeSetup.exe" />
+    <None Remove="Assets\ftl_logo.png" />
+    <None Remove="Assets\ftl_logo.svg" />
+    <None Remove="Assets\ftl_name.svg" />
+    <None Remove="Assets\GW3773.png" />
+    <None Remove="Assets\Install.bat" />
+    <None Remove="Assets\ProxyAgent.exe" />
+    <None Remove="Assets\shoe.png" />
+    <None Remove="Assets\shoe.svg" />
+    <None Remove="Assets\VC_redist.x64.exe" />
+    <None Remove="Assets\VC_redist.x86.exe" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Assets\bermuda_logo.png" />
+    <Resource Include="Assets\bermuda_logo.svg" />
+    <Resource Include="Assets\boro_bermuda_logo.svg" />
+    <Resource Include="Assets\decore-left.png" />
+    <Resource Include="Assets\decore-right.png" />
+    <Resource Include="Assets\discord.jpg" />
+    <Resource Include="Assets\ftl_logo.svg" />
+    <Resource Include="Assets\ftl_name.svg" />
+    <Resource Include="Assets\GW3773.png" />
+    <Resource Include="Assets\shoe.png" />
+    <Resource Include="Assets\shoe.svg" />
+    <Content Include="Assets\EdgeSetup.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Install.bat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\ProxyAgent.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\VC_redist.x64.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\VC_redist.x86.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MaterialDesignThemes" Version="4.1.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="5.0.2" />
+    <PackageReference Include="Microsoft.Toolkit.Uwp.Notifications" Version="7.1.1" />
+    <PackageReference Include="SharpVectors" Version="1.7.6" />
+    <PackageReference Include="System.Text.Json" Version="5.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Dialogs\" />
+    <Folder Include="Models\" />
+    <Folder Include="Interfaces\" />
+    <Folder Include="Enums\" />
+    <Folder Include="Services\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+</Project>

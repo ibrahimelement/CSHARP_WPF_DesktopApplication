@@ -1,0 +1,134 @@
+﻿<UserControl x:Class="Bermuda.Popups.AddProfile"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             DataContext="{Binding RelativeSource={RelativeSource Self}}"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:local="clr-namespace:Bermuda.Popups"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    
+    <Grid>
+
+
+        <materialDesign:Card Width="400" Height="600">
+
+            <Grid>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/> 
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <Rectangle Grid.ColumnSpan="2" Fill="#0a0e12"/>
+                <TextBlock Margin="4,16,4,16"
+                            Grid.ColumnSpan="2"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Text="Add Profile"
+                            FontSize="24"/>
+
+                <StackPanel Grid.Row="1" HorizontalAlignment="Center" Grid.ColumnSpan="2" Margin="0,12,0,0">
+                    <TextBlock Foreground="White" Text="Personal" TextDecorations="Underline" FontSize="18"/>
+                </StackPanel>
+
+                <StackPanel Grid.Row="1" Width="200" HorizontalAlignment="Center" Grid.ColumnSpan="2" Margin="0,42,0,0">
+                    <TextBlock Foreground="White" Text="Profile Name:" FontSize="16"/>
+                    <TextBox Foreground="White" Margin="0,0,0,8" Text="{Binding ProfileName, Mode=TwoWay}"/>
+                </StackPanel>
+
+
+                <StackPanel Margin="0,92,4,4"
+                            HorizontalAlignment="Center"
+                            Grid.Row="1"
+                            Width="150">
+
+                    <TextBlock Foreground="White" Text="First Name:" FontSize="16"/>
+                    <TextBox Foreground="White" Margin="0,0,0,8" Text="{Binding FirstName, Mode=TwoWay}"/>
+
+                    <TextBlock Foreground="White" Text="Address 1:" FontSize="16"/>
+                    <TextBox Foreground="White" Margin="0,0,0,8" Text="{Binding Address1, Mode=TwoWay}"/>
+
+                    <TextBlock Foreground="White" Text="Phone Number:" FontSize="16"/>
+                    <TextBox Foreground="White" Margin="0,0,0,8" PreviewTextInput="NumberValidationTextBox" Text="{Binding PhoneNumber, Mode=TwoWay}"/>
+
+                    <TextBlock Foreground="White" Text="State:" FontSize="16"/>
+                    <TextBox Foreground="White" Margin="0,0,0,8" Text="{Binding State, Mode=TwoWay}"/>
+
+                    <TextBlock Foreground="White" Text="State Code:" FontSize="16"/>
+                    <TextBox Foreground="White" MaxLength="2" Text="{Binding StateCode, Mode=TwoWay}"/>
+
+                </StackPanel>
+
+                <StackPanel Margin="0,92,4,4"
+                            HorizontalAlignment="Center"
+                            Grid.Column="1"
+                            Grid.Row="1"
+                            Width="150">
+
+                    <TextBlock Foreground="White" Text="Last Name:" FontSize="16"/>
+                    <TextBox Foreground="White" Margin="0,0,0,8" Text="{Binding LastName, Mode=TwoWay}"/>
+
+                    <TextBlock Foreground="White" Text="Address 2:" FontSize="16"/>
+                    <TextBox Foreground="White" Margin="0,0,0,8" Text="{Binding Address2, Mode=TwoWay}"/>
+
+                    <TextBlock Foreground="White" Text="Email:" FontSize="16"/>
+                    <TextBox Foreground="White" Margin="0,0,0,8" Text="{Binding Email, Mode=TwoWay}"/>
+
+                    <TextBlock Foreground="White" Text="City:" FontSize="16"/>
+                    <TextBox Foreground="White" Margin="0,0,0,8" Text="{Binding City, Mode=TwoWay}"/>
+
+                    <TextBlock Foreground="White" Text="ZIP/Postal:" FontSize="16"/>
+                    <TextBox Foreground="White" Text="{Binding ZipCode, Mode=TwoWay}"/>
+
+                </StackPanel>
+
+                <TextBlock Foreground="White" Text="Billing" TextDecorations="Underline" FontSize="18" Grid.Row="2" HorizontalAlignment="Center" Grid.ColumnSpan="2" Margin="0,12,0,0"/>
+
+                <StackPanel Margin="0,42,4,4"
+                            HorizontalAlignment="Center"
+                            Grid.Row="2"
+                            Width="150">
+
+                    <TextBlock Foreground="White" Text="Card Number:" FontSize="16"/>
+                    <TextBox Foreground="White" Margin="0,0,0,8" PreviewTextInput="NumberValidationTextBox" Text="{Binding CardNumber, Mode=TwoWay}"/>
+
+                    <TextBlock Foreground="White" Text="EXP Month:" FontSize="16"/>
+                    <TextBox Foreground="White" MaxLength="2" PreviewTextInput="NumberValidationTextBox" Text="{Binding CardExpMonth, Mode=TwoWay}"/>
+
+                </StackPanel>
+
+                <StackPanel Margin="0,42,4,4"
+                            HorizontalAlignment="Center"
+                            Grid.Column="1"
+                            Grid.Row="2"
+                            Width="150">
+                    
+                    <TextBlock Foreground="White" Text="CVC:" FontSize="16"/>
+                    <TextBox Foreground="White" MaxLength="3" Margin="0,0,0,8" PreviewTextInput="NumberValidationTextBox"  Text="{Binding CardCVC, Mode=TwoWay}"/>
+
+                    <TextBlock Foreground="White" Text="EXP Year:" FontSize="16"/>
+                    <TextBox Foreground="White" MaxLength="2" PreviewTextInput="NumberValidationTextBox" Text="{Binding CardExpYear, Mode=TwoWay}"/>
+
+                </StackPanel>
+
+                <StackPanel Grid.Row="2"
+                            Grid.ColumnSpan="2"
+                            VerticalAlignment="Bottom">
+                    <Button Content="Add" Click="SaveNewProfile_Click" Height="40"/>
+                </StackPanel>
+
+            </Grid>
+
+        </materialDesign:Card>
+    </Grid>
+    
+</UserControl>
